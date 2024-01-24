@@ -14,7 +14,7 @@ interface Props {
 }
 
 function TaskItem({ title, description, date, isCompleted, id }: Props) {
-  const { theme, deleteTask, updateTask, } = useGlobalState();
+  const { theme, deleteTask, updateTask, openModal } = useGlobalState();
   return (
     <TaskItemStyled theme={theme} className="h-64 flex flex-col gap-1 rounded-2xl py-5 px-4" >
       <h1 className="text-2xl font-bold">{title}</h1>
@@ -50,7 +50,7 @@ function TaskItem({ title, description, date, isCompleted, id }: Props) {
             Incomplete
           </button>
         )}
-        <button className="ml-auto">{edit}</button>
+        <button className="ml-auto" onClick={openModal}>{edit}</button>
         <button
           className="delete"
           onClick={() => {
@@ -73,7 +73,6 @@ const TaskItemStyled = styled.div`
         font-size: 1.4rem;
         color: ${(props) => props.theme.colorGrey2};
       }
-
     .incomplete {
       background: ${(props) => props.theme.colorDanger}; 
     }
