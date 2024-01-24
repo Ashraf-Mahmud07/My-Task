@@ -112,7 +112,7 @@ function CreateContent() {
           id="completed"
         />
       </div>
-      <div className="input-control toggler">
+      <div className="input-control toggler flex items-center justify-between cursor-pointer">
         <label htmlFor="important">Important</label>
         <input
           value={important.toString()}
@@ -202,12 +202,6 @@ const CreateContentStyled = styled.form`
   }
 
   .toggler {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    cursor: pointer;
-
     label {
       flex: 1;
     }
