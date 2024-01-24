@@ -13,7 +13,7 @@ function Modal({ content }: Props) {
   const { theme } = useGlobalState();
   return (
     <ModalStyled theme={theme}>
-      <div className="modal-overlay" onClick={closeModal}></div>
+      <div className="modal-overlay absolute top-0 left-0 w-full h-full blur-md" onClick={closeModal}></div>
       <div className="modal-content">{content}</div>
     </ModalStyled>
   );
@@ -32,11 +32,6 @@ const ModalStyled = styled.div`
   align-items: center;
 
   .modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.45);
     filter: blur(4px);
   }
